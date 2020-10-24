@@ -28,8 +28,6 @@ do -- mod.lua
         --               decompile looks like it will return nil, but docs could explicitly call that out.
         settings.seed = util.parseSeed( --[[ ModSaveData.LoadValue("Seed") or ]] globalSettings.seed)
 
-        -- TODO does setting the random seed (or making random calls) in BeforeLoad change how the world is generated?
-        -- TODO does using a fixed world seed cause the same random seed to be chosen by util.parseSeed? (not inherently an issue, but could be fixed by mixing in os.time())
         -- FEATURE REQUEST: instead of managing a seed myself, could a guarantee be made that math.random is in a determined state in BeforeLoad based on the world seed?
         --                  some potential issues: load order of mods that use math.random
         --                                         the fact that the game iself isn't fully determined by the world seed
